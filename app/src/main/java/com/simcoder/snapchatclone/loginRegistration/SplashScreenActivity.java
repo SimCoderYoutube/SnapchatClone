@@ -1,12 +1,11 @@
-package com.simcoder.snapchatclone;
+package com.simcoder.snapchatclone.loginRegistration;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.simcoder.snapchatclone.MainActivity;
 
 /**
  * Created by simco on 1/2/2018.
