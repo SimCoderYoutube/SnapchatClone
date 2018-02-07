@@ -15,8 +15,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.simcoder.snapchatclone.RecyclerViewFollow.RCAdapater;
-import com.simcoder.snapchatclone.RecyclerViewFollow.UsersObject;
+import com.simcoder.snapchatclone.RecyclerViewFollow.FollowAdapater;
+import com.simcoder.snapchatclone.RecyclerViewFollow.FollowObject;
 
 import java.util.ArrayList;
 
@@ -41,7 +41,7 @@ public class FindUsersActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getApplication());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RCAdapater(getDataSet(),getApplication());
+        mAdapter = new FollowAdapater(getDataSet(),getApplication());
         mRecyclerView.setAdapter(mAdapter);
 
         mSearch.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,7 @@ public class FindUsersActivity extends AppCompatActivity {
                     email = dataSnapshot.child("email").getValue().toString();
                 }
                 if(!email.equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
-                    UsersObject obj = new UsersObject(email, uid);
+                    FollowObject obj = new FollowObject(email, uid);
                     results.add(obj);
                     mAdapter.notifyDataSetChanged();
                 }
@@ -104,8 +104,8 @@ public class FindUsersActivity extends AppCompatActivity {
 
 
 
-    private ArrayList<UsersObject> results = new ArrayList<>();
-    private ArrayList<UsersObject> getDataSet() {
+    private ArrayList<FollowObject> results = new ArrayList<>();
+    private ArrayList<FollowObject> getDataSet() {
         listenForData();
         return results;
     }
