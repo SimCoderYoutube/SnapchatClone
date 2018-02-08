@@ -26,7 +26,8 @@
         <activity android:name=".loginRegistration.LoginActivity" />
         <activity android:name=".loginRegistration.RegistrationActivity" />
         <activity android:name=".ShowCaptureActivity" />
-        <activity android:name=".FindUsersActivity"></activity>
+        <activity android:name=".FindUsersActivity" />
+        <activity android:name=".DisplayImageActivity"></activity>
     </application>
 
 </manifest>

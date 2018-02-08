@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
-        android:padding="10sp">
+        android:padding="20sp">
         <TextView
             android:textStyle="bold"
             android:textColor="@android:color/black"
