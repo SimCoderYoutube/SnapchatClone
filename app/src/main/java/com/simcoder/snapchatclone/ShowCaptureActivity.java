@@ -21,32 +21,31 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ShowCaptureActivity extends AppCompatActivity {
 
     String Uid;
-    Bitmap rotateBitmap;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_capture);
 
-        Bundle extras = getIntent().getExtras();
-        assert extras != null;
-        byte[] b = extras.getByteArray("capture");
 
-        if(b!=null){
-            ImageView image = findViewById(R.id.imageCaptured);
-
-            Bitmap decodedBitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
-
-            rotateBitmap = rotate(decodedBitmap);
-
-            image.setImageBitmap(rotateBitmap);
+        try {
+            bitmap = BitmapFactory.decodeStream(getApplication().openFileInput("imageToSend"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            finish();
+            return;
         }
+
+        ImageView mImage = findViewById(R.id.imageCaptured);
+        mImage.setImageBitmap(bitmap);
 
         Uid = FirebaseAuth.getInstance().getUid();
 
@@ -68,7 +67,7 @@ public class ShowCaptureActivity extends AppCompatActivity {
         StorageReference filePath = FirebaseStorage.getInstance().getReference().child("captures").child(key);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        rotateBitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
         byte[] dataToUpload = baos.toByteArray();
         UploadTask uploadTask = filePath.putBytes(dataToUpload);
 
@@ -106,16 +105,4 @@ public class ShowCaptureActivity extends AppCompatActivity {
 
 
 
-
-
-    private Bitmap rotate(Bitmap decodedBitmap) {
-        int w = decodedBitmap.getWidth();
-        int h = decodedBitmap.getHeight();
-
-        Matrix matrix = new Matrix();
-        matrix.setRotate(90);
-
-        return Bitmap.createBitmap(decodedBitmap, 0, 0, w, h, matrix, true);
-
-    }
 }

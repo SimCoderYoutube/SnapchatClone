@@ -1,8 +1,12 @@
 package com.simcoder.snapchatclone.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
+import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,6 +26,8 @@ import com.simcoder.snapchatclone.R;
 import com.simcoder.snapchatclone.ShowCaptureActivity;
 import com.simcoder.snapchatclone.loginRegistration.SplashScreenActivity;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -93,17 +99,49 @@ public class CameraFragment extends Fragment implements SurfaceHolder.Callback{
         jpegCallback = new Camera.PictureCallback(){
             @Override
             public void onPictureTaken(byte[] bytes, Camera camera) {
-                Intent intent = new Intent(getActivity(), ShowCaptureActivity.class);
-                intent.putExtra("capture", bytes);
-                startActivity(intent);
-                return;
 
+                Bitmap decodedBitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+                Bitmap rotateBitmap = rotate(decodedBitmap);
+
+                String fileLocation = SaveImageToStorage(rotateBitmap);
+                if(fileLocation!= null){
+                    Intent intent = new Intent(getActivity(), ShowCaptureActivity.class);
+                    startActivity(intent);
+                    return;
+                }
             }
         };
 
         return view;
     }
 
+
+    public String SaveImageToStorage(Bitmap bitmap){
+        String fileName = "imageToSend";
+        try{
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            FileOutputStream fo = getContext().openFileOutput(fileName, Context.MODE_PRIVATE);
+            fo.write(bytes.toByteArray());
+            fo.close();
+        }catch(Exception e){
+            e.printStackTrace();
+            fileName = null;
+        }
+        return fileName;
+    }
+
+    private Bitmap rotate(Bitmap decodedBitmap) {
+        int w = decodedBitmap.getWidth();
+        int h = decodedBitmap.getHeight();
+
+        Matrix matrix = new Matrix();
+        matrix.setRotate(90);
+
+        return Bitmap.createBitmap(decodedBitmap, 0, 0, w, h, matrix, true);
+
+    }
 
     private void captureImage() {
         camera.takePicture(null, null, jpegCallback);
