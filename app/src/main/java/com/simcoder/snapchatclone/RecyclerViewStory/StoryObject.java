@@ -7,10 +7,12 @@ package com.simcoder.snapchatclone.RecyclerViewStory;
 public class StoryObject {
     private String email;
     private String uid;
+    private String charOrStory;
 
-    public StoryObject(String email, String uid){
+    public StoryObject(String email, String uid, String charOrStory){
         this.email = email;
         this.uid = uid;
+        this.charOrStory = charOrStory;
     }
 
     public String getUid(){
@@ -25,6 +27,13 @@ public class StoryObject {
     }
     public void setEmail(String email){
         this.email = email;
+    }
+
+    public String getCharOrStory(){
+        return charOrStory;
+    }
+    public void setCharOrStory(String charOrStory){
+        this.charOrStory = charOrStory;
     }
 
     @Override
