@@ -1,6 +1,6 @@
 # snapchatCone
 
-▷ Create an android app like SNAPCHAT
+▷ Create an android app like SNAPCHAT AND INSTAGRAM 
 
 ▷ Full Video Tutorial Playlist here: https://www.youtube.com/watch?v=CNyIUFGumNA&list=PLxabZQCAe5fjMRCDY8OUXoPnhQ2AiaM05 <br />
 
