@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="10sp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginRight="10sp"
+            android:id="@+id/profile"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:background="@drawable/ic_account_circle_black_24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginEnd="10sp" />
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textSize="14sp"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Button
+                android:background="@drawable/button_idle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/follow"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/follow"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

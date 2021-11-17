@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activityMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wonderkiln.camerakit.CameraView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:ckCropOutput="false"
+        app:ckDoubleTapToToggleFacing="true"
+        app:ckFacing="back"
+        app:ckFlash="on"
+        app:ckFocus="tapWithMarker"
+        app:ckJpegQuality="100"
+        app:ckMethod="speed"
+        app:ckPinchToZoom="true"
+        app:ckVideoQuality="highest"
+        app:ckZoom="1.0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp">
+        <ImageButton
+            android:layout_gravity="center"
+            android:id="@+id/profile"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:background="@drawable/ic_account_circle_white_24dp"
+            android:clickable="true"
+            android:focusable="true" />
+        <EditText
+            android:layout_gravity="center"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:id="@+id/search"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:drawablePadding="10sp"
+            android:textColorHint="@color/white"
+            android:hint="@string/search"
+            android:clickable="false"
+            android:focusable="false"
+            android:drawableStart="@drawable/ic_search_black_24dp" />
+        <ImageButton
+            android:layout_gravity="center"
+            android:id="@+id/flash"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:background="@drawable/ic_flash_on_black_24dp"
+            android:clickable="true"
+            android:focusable="true" />
+        <ImageButton
+            android:layout_gravity="center"
+            android:id="@+id/reverse"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:background="@drawable/ic_autorenew_black_24dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+</FrameLayout>
