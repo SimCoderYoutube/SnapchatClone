@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "users":{
+      ".read": "auth!=null",
+      "$uid":{
+        "email" : {
+          ".write" : "auth != null && $uid === auth.uid"
+        },
+        "name" : {
+          ".write" : "auth != null && $uid === auth.uid"
+        },
+        "image" : {
+          ".write" : "auth != null && $uid === auth.uid"
+        },
+        "story" : {
+          ".write" : "auth != null && $uid === auth.uid"
+        },
+        "received" : {
+          ".write" : "auth != null"
+        },
+        "following" : {
+          ".write" : "auth != null && $uid === auth.uid"
+        }
+      }
+		}
+  }
+}

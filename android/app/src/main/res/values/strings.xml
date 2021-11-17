@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SnapchatClone</string>
+    <string name="no_stories">No Stories to Display</string>
+    <string name="no_chats">No Chats to Display</string>
+    <string name="follow">follow</string>
+    <string name="following">following</string>
+    <string name="search">Search</string>
+    <string name="add_a_snap_to_my_story_friends_can_see_it_for_24_hours">Add a Snap to My Story. Friends can see it for 24 hours.</string>
+    <string name="stories">Stories</string>
+    <string name="my_story">My Story</string>
+    <string name="friends">Friends</string>
+    <string name="send_your_snap_directly_to_a_friend">Send your Snap directly to a friend.</string>
+    <string name="log_in">Log In</string>
+    <string name="email">email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="my_account">MY ACCOUNT</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="name">Name</string>
+    <string name="account_actions">ACCOUNT ACTIONS</string>
+    <string name="log_out">Log Out</string>
+</resources>

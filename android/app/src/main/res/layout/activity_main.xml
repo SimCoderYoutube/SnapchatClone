@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.simcoder.snapchatclone.MainActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager"/>
+
+    <LinearLayout
+        android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp">
+        <ImageButton
+            android:id="@+id/chat"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:background="@drawable/ic_chat_black_24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginRight="40sp"
+            android:layout_marginEnd="40sp" />
+        <ImageButton
+            android:id="@+id/capture"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:background="@drawable/ic_panorama_fish_eye_black_24dp"
+            android:clickable="true"
+            android:focusable="true" />
+        <ImageButton
+            android:layout_marginLeft="40sp"
+            android:id="@+id/story"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
+            android:background="@drawable/ic_people_black_24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginStart="40sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"/>
+
+
+</FrameLayout>
